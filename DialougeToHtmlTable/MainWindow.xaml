@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="MainWindow" Height="180" Width="250"
+        Title="MainWindow" Height="180" Width="320"
         ResizeMode="CanMinimize">
     <Grid>
         <Grid.RowDefinitions>
@@ -15,6 +15,7 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width=".2*" />
+            <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width=".2*" />
@@ -56,11 +57,24 @@
                                 Minimum="0" />
         </StackPanel>
 
+        <StackPanel Grid.Row="0"
+                   Grid.Column="3"
+                    VerticalAlignment="Bottom"
+                    Margin="0,0,0,5">
+
+            <CheckBox x:Name="RomajiCheckBox"
+                Margin="5,0,5,0"
+                Height="30"
+                Content="Romaji"
+                FontSize="14"
+                VerticalContentAlignment="Center" />
+        </StackPanel>
+
         <Button x:Name="DialogueWinGenBtn"
                 Content="Generate"
                 Grid.Column="1"
                 Grid.Row="1"
-                Grid.ColumnSpan="2"
+                Grid.ColumnSpan="3"
                 Height="30"
                 VerticalAlignment="Top"
                 Margin="5,5,5,0"

@@ -42,11 +42,25 @@ namespace DialougeToHtmlTable
                 dialougueWindow.TextInputGrid.RowDefinitions.Add(new RowDefinition());
             }
 
-            foreach (TextBox textBox in normaltextBoxList)
+            if (RomajiCheckBox.IsChecked.Value)
             {
-                dialougueWindow.TextInputGrid.Children.Add(textBox);
-                textBox.Text = textBox.Name;
+                for (int i = 0; i < normaltextBoxList.Count; i++)
+                {
+                    dialougueWindow.TextInputGrid.Children.Add(normaltextBoxList[i]);
+                    normaltextBoxList[i].Text = normaltextBoxList[i].Name;
+                    dialougueWindow.TextInputGrid.Children.Add(romajiTextBoxList[i]);
+                    romajiTextBoxList[i].Text = romajiTextBoxList[i].Name;
+                }
             }
+            else
+            {
+                foreach (TextBox textBox in normaltextBoxList)
+                {
+                    dialougueWindow.TextInputGrid.Children.Add(textBox);
+                    textBox.Text = textBox.Name;
+                }
+            }
+
             dialougueWindow.Show();
         }
 
@@ -56,24 +70,58 @@ namespace DialougeToHtmlTable
             numberOfColumns = (int)ColumnUpDown.Value;
             numberOfRows = (int)RowUpDown.Value;
 
-            int i = 0;
-            for (int currentRow = 0; currentRow < numberOfRows; currentRow++)
+            if (!RomajiCheckBox.IsChecked.Value)
             {
-                for (int currentCol = 0; currentCol < numberOfColumns; currentCol++)
+                int i = 0;
+                for (int currentRow = 0; currentRow < numberOfRows; currentRow++)
                 {
-                    normaltextBoxList.Add(new TextBox());
-                    romajiTextBoxList.Add(new TextBox());
+                    for (int currentCol = 0; currentCol < numberOfColumns; currentCol++)
+                    {
+                        normaltextBoxList.Add(new TextBox());
+                        Grid.SetRow(normaltextBoxList[i], currentRow);
+                        Grid.SetColumn(normaltextBoxList[i], currentCol);
 
-                    Grid.SetRow(normaltextBoxList[i], currentRow);
-                    Grid.SetColumn(normaltextBoxList[i], currentCol);
+                        normaltextBoxList[i].Name = $"TextBoxR{currentRow + 1}C{currentCol + 1}";
+                        normaltextBoxList[i].Margin = new Thickness(8);
+                        normaltextBoxList[i].TextWrapping = TextWrapping.Wrap;
+                        normaltextBoxList[i].Background = Brushes.LightCyan;
 
-                    normaltextBoxList[i].Name = $"TextBoxR{currentRow + 1}C{currentCol + 1}";
-                    normaltextBoxList[i].Margin = new Thickness(8);
-                    normaltextBoxList[i].TextWrapping = TextWrapping.Wrap;
-                    normaltextBoxList[i].Background = Brushes.LightCyan;
-
-                    i++;
+                        i++;
+                    }
                 }
+            }
+            else
+            {
+                numberOfRows *= 2;
+
+                int i = 0;
+                for (int currentRow = 0; currentRow < numberOfRows; currentRow += 2)
+                {
+                    for (int currentCol = 0; currentCol < numberOfColumns; currentCol++)
+                    {
+                        normaltextBoxList.Add(new TextBox());
+                        Grid.SetRow(normaltextBoxList[i], currentRow);
+                        Grid.SetColumn(normaltextBoxList[i], currentCol);
+
+                        normaltextBoxList[i].Name = $"TextBoxR{currentRow + 1}C{currentCol + 1}";
+                        normaltextBoxList[i].Margin = new Thickness(10, 10, 10, 0);
+                        normaltextBoxList[i].TextWrapping = TextWrapping.Wrap;
+                        normaltextBoxList[i].Background = Brushes.LightCyan;
+
+                        romajiTextBoxList.Add(new TextBox());
+                        Grid.SetRow(romajiTextBoxList[i], currentRow + 1);
+                        Grid.SetColumn(romajiTextBoxList[i], currentCol);
+
+                        romajiTextBoxList[i].Name = $"RomajiBoxR{currentRow + 2}C{currentCol + 1}";
+                        romajiTextBoxList[i].Margin = new Thickness(10, 0, 10, 10);
+                        romajiTextBoxList[i].TextWrapping = TextWrapping.Wrap;
+                        romajiTextBoxList[i].Background = Brushes.LightPink;
+
+                        i++;
+                    }
+                }
+
+                Log(i);
             }
         }
 
