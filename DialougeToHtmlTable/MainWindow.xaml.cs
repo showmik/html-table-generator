@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace DialougeToHtmlTable
 {
@@ -15,12 +16,21 @@ namespace DialougeToHtmlTable
             InitializeComponent();
         }
 
+        private int numberOfColumns;
+        private int numberOfRows;
+
+        private List<TextBox> normaltextBoxList = new List<TextBox>();
+        private List<TextBox> romajiTextBoxList = new List<TextBox>();
+
         private void DialogueWinGenBtn_Click(object sender, RoutedEventArgs e)
         {
-            int numberOfColumns = (int)ColumnUpDown.Value;
-            int numberOfRows = (int)RowUpDown.Value;
+            PopulateTextBoxLists();
+            InitializeDialougeWindow();
+        }
 
-            DialougueWindow dialougueWindow = new DialougueWindow();
+        private void InitializeDialougeWindow()
+        {
+            DialougueWindow dialougueWindow = new DialougueWindow(numberOfColumns, numberOfRows, normaltextBoxList);
 
             for (int currentCol = 0; currentCol < numberOfColumns; currentCol++)
             {
@@ -32,8 +42,19 @@ namespace DialougeToHtmlTable
                 dialougueWindow.TextInputGrid.RowDefinitions.Add(new RowDefinition());
             }
 
-            List<TextBox> normaltextBoxList = new List<TextBox>();
-            List<TextBox> romajiTextBoxList = new List<TextBox>();
+            foreach (TextBox textBox in normaltextBoxList)
+            {
+                dialougueWindow.TextInputGrid.Children.Add(textBox);
+                textBox.Text = textBox.Name;
+            }
+            dialougueWindow.Show();
+        }
+
+        private void PopulateTextBoxLists()
+        {
+            normaltextBoxList.Clear();
+            numberOfColumns = (int)ColumnUpDown.Value;
+            numberOfRows = (int)RowUpDown.Value;
 
             int i = 0;
             for (int currentRow = 0; currentRow < numberOfRows; currentRow++)
@@ -45,33 +66,20 @@ namespace DialougeToHtmlTable
 
                     Grid.SetRow(normaltextBoxList[i], currentRow);
                     Grid.SetColumn(normaltextBoxList[i], currentCol);
-                    
+
+                    normaltextBoxList[i].Name = $"TextBoxR{currentRow + 1}C{currentCol + 1}";
+                    normaltextBoxList[i].Margin = new Thickness(8);
+                    normaltextBoxList[i].TextWrapping = TextWrapping.Wrap;
+                    normaltextBoxList[i].Background = Brushes.LightCyan;
+
                     i++;
                 }
             }
+        }
 
-            Debug.WriteLine($"RESULT = {i} <--------");
-
-            foreach (TextBox textBox in normaltextBoxList)
-            {
-                dialougueWindow.TextInputGrid.Children.Add(textBox);
-            }
-
-            //for (int currentRow = 0; currentRow < numberOfRows; currentRow++)
-            //{
-            //    for (int currentCol = 0; currentCol < numberOfColumns; currentCol++)
-            //    {
-            //        dialougueWindow.TextInputGrid.Children.Add(normaltextBoxList[]);
-            //    }
-            //}
-
-            //dialougueWindow.TextInputGrid.Children.Add(textBox1);
-            //dialougueWindow.TextInputGrid.Children.Add(textBox2);
-
-            //Grid.SetColumn(textBox1, 0);
-            //Grid.SetColumn(textBox2, 1);
-
-            dialougueWindow.Show();
+        private void Log(int input)
+        {
+            Debug.WriteLine($"Debug Log = {input} <--------");
         }
     }
 }

@@ -19,9 +19,22 @@ namespace DialougeToHtmlTable
     /// </summary>
     public partial class DialougueWindow : Window
     {
-        public DialougueWindow()
+        List<TextBox> normaltextBoxList = new List<TextBox>();
+        int totalColumns;
+        int totalRows;
+
+        public DialougueWindow(int colNumber, int rowNumber, List<TextBox> textBoxList)
         {
             InitializeComponent();
+            normaltextBoxList = textBoxList;
+            totalColumns = colNumber;
+            totalRows = rowNumber;
+            
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
