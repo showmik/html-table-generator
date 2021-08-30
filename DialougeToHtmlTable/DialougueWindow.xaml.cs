@@ -11,43 +11,77 @@ namespace DialougeToHtmlTable
     /// </summary>
     public partial class DialougueWindow : Window
     {
-        private List<TextBox> normaltextBoxList = new List<TextBox>();
-        private int totalColumns;
-        private int totalRows;
+        private List<TextBox> normalTextBoxList = new List<TextBox>();
+        private List<TextBox> romajiTextBoxList = new List<TextBox>();
+        private int numberOfColumns;
+        private int numberOfRows;
+        private bool isRomajiEnabled;
 
         private StringBuilder stringBuilder = new StringBuilder();
 
-        public DialougueWindow(int colNumber, int rowNumber, List<TextBox> textBoxList)
+        public DialougueWindow(int colNumber, int rowNumber, bool romajiChecked, List<TextBox> textBoxList, List<TextBox> romajiBoxList)
         {
             InitializeComponent();
-            normaltextBoxList = textBoxList;
-            totalColumns = colNumber;
-            totalRows = rowNumber;
+            normalTextBoxList = textBoxList;
+            romajiTextBoxList = romajiBoxList;
+            numberOfColumns = colNumber;
+            numberOfRows = rowNumber;
+            isRomajiEnabled = romajiChecked;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            GenerateTableHtmlText();
+            if (!isRomajiEnabled)
+            {
+                GenerateNormalTable();
+            }
+            else
+            {
+                GenerateTableWithRomaji();
+            }
             ShowResultWindow();
         }
 
-        private void GenerateTableHtmlText()
+        private void GenerateTableWithRomaji()
         {
+            int i = 0;
+
             stringBuilder.Clear();
             stringBuilder.AppendLine("<table>");
-            int i = 0;
-            for (int currentRow = 0; currentRow < totalRows; currentRow++)
+            for (int currentRow = 0; currentRow < numberOfRows; currentRow += 2)
             {
                 stringBuilder.AppendLine("<tr>");
-                for (int currentCol = 0; currentCol < totalColumns; currentCol++)
+                for (int currentCol = 0; currentCol < numberOfColumns; currentCol++)
                 {
                     stringBuilder.Append("<td>");
-                    stringBuilder.Append(normaltextBoxList[i].Text);
+                    stringBuilder.Append(normalTextBoxList[i].Text);
+                    stringBuilder.Append($"<br/>");
+                    stringBuilder.Append(romajiTextBoxList[i].Text);
                     stringBuilder.AppendLine($"</td>");
                     i++;
                 }
                 stringBuilder.AppendLine($"</tr>");
-                
+            }
+            stringBuilder.AppendLine("</table>");
+        }
+
+        private void GenerateNormalTable()
+        {
+            int i = 0;
+
+            stringBuilder.Clear();
+            stringBuilder.AppendLine("<table>");
+            for (int currentRow = 0; currentRow < numberOfRows; currentRow++)
+            {
+                stringBuilder.AppendLine("<tr>");
+                for (int currentCol = 0; currentCol < numberOfColumns; currentCol++)
+                {
+                    stringBuilder.Append("<td>");
+                    stringBuilder.Append(normalTextBoxList[i].Text);
+                    stringBuilder.AppendLine($"</td>");
+                    i++;
+                }
+                stringBuilder.AppendLine($"</tr>");
             }
             stringBuilder.AppendLine("</table>");
         }

@@ -11,16 +11,16 @@ namespace DialougeToHtmlTable
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
-
         private int numberOfColumns;
         private int numberOfRows;
 
         private List<TextBox> normaltextBoxList = new List<TextBox>();
         private List<TextBox> romajiTextBoxList = new List<TextBox>();
+
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
 
         private void DialogueWinGenBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -30,7 +30,7 @@ namespace DialougeToHtmlTable
 
         private void InitializeDialougeWindow()
         {
-            DialougueWindow dialougueWindow = new DialougueWindow(numberOfColumns, numberOfRows, normaltextBoxList);
+            DialougueWindow dialougueWindow = new DialougueWindow(numberOfColumns, numberOfRows, RomajiCheckBox.IsChecked.Value, normaltextBoxList, romajiTextBoxList);
 
             for (int currentCol = 0; currentCol < numberOfColumns; currentCol++)
             {
@@ -127,7 +127,7 @@ namespace DialougeToHtmlTable
                     }
                 }
 
-                Log(i);
+                //Log(i);
             }
         }
 
