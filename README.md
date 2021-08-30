@@ -4,7 +4,7 @@
 
 ## Backstory
 I was working on an ebook file that I intended to read on my kindle. The file had many Japanese dialogues and vocabularies that needed to be formatted into an HTML table so that the kindle can display it nicely.
-I also had to make sure it supports furigana by using the *[ruby](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby)* tag.
+I also had to make sure it supports furigana by using [HTML ruby syntax](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby) tag.
 
 Coding this by hand was very tedious and close to impossible. So, I decided to make a tool that can automate this process. The HTML Table Generator is the result of that, along with another tool, the **FuriganaTool**.
 
