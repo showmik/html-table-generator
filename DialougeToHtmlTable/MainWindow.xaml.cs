@@ -25,8 +25,11 @@ namespace DialougeToHtmlTable
 
         private void DialogueWinGenBtn_Click(object sender, RoutedEventArgs e)
         {
-            PopulateTextBoxLists();
-            InitializeDialougeWindow();
+            if (ColumnUpDown.Value != null && RowUpDown.Value != null)
+            {
+                PopulateTextBoxLists();
+                InitializeDialougeWindow();
+            }
         }
 
         private void InitializeDialougeWindow()

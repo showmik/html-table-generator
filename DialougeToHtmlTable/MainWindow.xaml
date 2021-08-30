@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="MainWindow" Height="180" Width="320"
-        ResizeMode="CanMinimize">
+        Title="HTML Table Generator" Height="250" Width="340"
+        ResizeMode="CanMinimize" Background="White" Foreground="#FF353535">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
@@ -24,50 +24,66 @@
         <StackPanel Grid.Row="0"
                    Grid.Column="1"
                     VerticalAlignment="Bottom"
-                    Margin="0,0,0,5">
+                    Margin="10,0,10,5">
 
-            <TextBlock  Margin="5,0,0,5"
+            <TextBlock  Margin="0,0,0,5"
                         Text="Column"
-                        FontSize="16" />
+                        FontSize="18" Foreground="#FF353535" 
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Center"
+                        FontFamily="./#Proxima Nova Rg" />
 
             <xctk:IntegerUpDown x:Name="ColumnUpDown"
                                 Height="30"
-                                Margin="5,0,5,0"
+                                Margin="0,0,0,0"
                                 FontSize="18"
                                 AllowSpin="True"
                                 Maximum="10"
-                                Minimum="0" />
+                                Minimum="0"
+                                Background="White"
+                                BorderBrush="#FF08B2E3"
+                                Foreground="#FF353535" BorderThickness="2" />
         </StackPanel>
 
         <StackPanel Grid.Row="0"
                    Grid.Column="2"
                     VerticalAlignment="Bottom"
-                    Margin="0,0,0,5">
+                    Margin="10,0,10,5">
 
-            <TextBlock  Margin="5,0,0,5"
+            <TextBlock  Margin="0,0,0,5"
                         Text="Row"
-                        FontSize="16" />
+                        FontSize="18" Foreground="#FF353535" 
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Center"
+                        FontFamily="./#Proxima Nova Rg" />
 
             <xctk:IntegerUpDown x:Name="RowUpDown"
                                 Height="30"
-                                Margin="5,0,5,0"
+                                Margin="0,0,0,0"
                                 FontSize="18"
                                 AllowSpin="True"
                                 Maximum="50"
-                                Minimum="0" />
+                                Minimum="0"
+                                Background="White"
+                                BorderBrush="#FF08B2E3" 
+                                Foreground="#FF353535" 
+                                BorderThickness="2" />
         </StackPanel>
 
         <StackPanel Grid.Row="0"
                    Grid.Column="3"
                     VerticalAlignment="Bottom"
-                    Margin="0,0,0,5">
+                    Margin="10,0,0,5">
 
             <CheckBox x:Name="RomajiCheckBox"
-                Margin="5,0,5,0"
+                Margin="0,0,0,0"
                 Height="30"
                 Content="Romaji"
-                FontSize="14"
-                VerticalContentAlignment="Center" />
+                FontSize="18"
+                VerticalContentAlignment="Center"
+                Foreground="#FF353535"
+                      BorderBrush="#FF08B2E3"
+                      Background="White" FontFamily="./#Proxima Nova Rg" BorderThickness="2" RenderTransformOrigin="0.5,0.5" />
         </StackPanel>
 
         <Button x:Name="DialogueWinGenBtn"
@@ -77,8 +93,34 @@
                 Grid.ColumnSpan="3"
                 Height="30"
                 VerticalAlignment="Top"
-                Margin="5,5,5,0"
-                FontSize="16"
-                Click="DialogueWinGenBtn_Click" />
+                Margin="10,15,10,0"
+                FontSize="18"
+                VerticalContentAlignment="Center"
+                Click="DialogueWinGenBtn_Click" BorderThickness="2">
+
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="TextElement.FontFamily" Value="Fonts/#ProximaNova" />
+                    <Setter Property="Background" Value="#FF08B2E3" />
+                    <Setter Property="Foreground" Value="White" />
+                    <Setter Property="Cursor" Value="Hand" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#16C6F7" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="Auto" Height="Auto"
+                            Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                                          HorizontalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
     </Grid>
 </Window>
