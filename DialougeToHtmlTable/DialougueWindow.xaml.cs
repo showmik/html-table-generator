@@ -11,12 +11,11 @@ namespace DialougeToHtmlTable
     /// </summary>
     public partial class DialougueWindow : Window
     {
-        private List<TextBox> normalTextBoxList = new List<TextBox>();
-        private List<TextBox> romajiTextBoxList = new List<TextBox>();
+        private bool isRomajiEnabled;
         private int numberOfColumns;
         private int numberOfRows;
-        private bool isRomajiEnabled;
-
+        private List<TextBox> normalTextBoxList = new List<TextBox>();
+        private List<TextBox> romajiTextBoxList = new List<TextBox>();
         private StringBuilder stringBuilder = new StringBuilder();
 
         public DialougueWindow(int colNumber, int rowNumber, bool romajiChecked, List<TextBox> textBoxList, List<TextBox> romajiBoxList)
@@ -42,6 +41,27 @@ namespace DialougeToHtmlTable
             ShowResultWindow();
         }
 
+        private void GenerateNormalTable()
+        {
+            int i = 0;
+
+            stringBuilder.Clear();
+            stringBuilder.AppendLine("<table>");
+            for (int currentRow = 0; currentRow < numberOfRows; currentRow++)
+            {
+                stringBuilder.AppendLine("<tr>");
+                for (int currentCol = 0; currentCol < numberOfColumns; currentCol++)
+                {
+                    stringBuilder.Append("<td>");
+                    stringBuilder.Append(normalTextBoxList[i].Text);
+                    stringBuilder.AppendLine($"</td>");
+                    i++;
+                }
+                stringBuilder.AppendLine($"</tr>");
+            }
+            stringBuilder.Append("</table>");
+        }
+
         private void GenerateTableWithRomaji()
         {
             int i = 0;
@@ -64,28 +84,6 @@ namespace DialougeToHtmlTable
             }
             stringBuilder.Append("</table>");
         }
-
-        private void GenerateNormalTable()
-        {
-            int i = 0;
-
-            stringBuilder.Clear();
-            stringBuilder.AppendLine("<table>");
-            for (int currentRow = 0; currentRow < numberOfRows; currentRow++)
-            {
-                stringBuilder.AppendLine("<tr>");
-                for (int currentCol = 0; currentCol < numberOfColumns; currentCol++)
-                {
-                    stringBuilder.Append("<td>");
-                    stringBuilder.Append(normalTextBoxList[i].Text);
-                    stringBuilder.AppendLine($"</td>");
-                    i++;
-                }
-                stringBuilder.AppendLine($"</tr>");
-            }
-            stringBuilder.Append("</table>");
-        }
-
         private void ShowResultWindow()
         {
             FlowDocument myFlowDoc = new FlowDocument();
