@@ -62,7 +62,7 @@ namespace DialougeToHtmlTable
                 }
                 stringBuilder.AppendLine($"</tr>");
             }
-            stringBuilder.AppendLine("</table>");
+            stringBuilder.Append("</table>");
         }
 
         private void GenerateNormalTable()
@@ -83,7 +83,7 @@ namespace DialougeToHtmlTable
                 }
                 stringBuilder.AppendLine($"</tr>");
             }
-            stringBuilder.AppendLine("</table>");
+            stringBuilder.Append("</table>");
         }
 
         private void ShowResultWindow()

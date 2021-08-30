@@ -19,9 +19,21 @@ namespace DialougeToHtmlTable
     /// </summary>
     public partial class ResultWindow : Window
     {
+        
         public ResultWindow()
         {
             InitializeComponent();
+        }
+
+        private void ResultCopyButton_Click(object sender, RoutedEventArgs e)
+        {
+            TextRange textRange = new TextRange(ResultTextBox.Document.ContentStart, ResultTextBox.Document.ContentEnd);
+            Clipboard.SetText(textRange.Text);
+        }
+
+        private void ResultClearButton_Click(object sender, RoutedEventArgs e)
+        {
+            ResultTextBox.Document.Blocks.Clear();
         }
     }
 }
