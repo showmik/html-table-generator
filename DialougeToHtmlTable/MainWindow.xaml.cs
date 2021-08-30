@@ -51,9 +51,9 @@ namespace DialougeToHtmlTable
                 for (int i = 0; i < normaltextBoxList.Count; i++)
                 {
                     dialougueWindow.TextInputGrid.Children.Add(normaltextBoxList[i]);
-                    normaltextBoxList[i].Text = normaltextBoxList[i].Name;
+                    //normaltextBoxList[i].Text = normaltextBoxList[i].Name;
                     dialougueWindow.TextInputGrid.Children.Add(romajiTextBoxList[i]);
-                    romajiTextBoxList[i].Text = romajiTextBoxList[i].Name;
+                    //romajiTextBoxList[i].Text = romajiTextBoxList[i].Name;
                 }
             }
             else
@@ -61,7 +61,7 @@ namespace DialougeToHtmlTable
                 foreach (TextBox textBox in normaltextBoxList)
                 {
                     dialougueWindow.TextInputGrid.Children.Add(textBox);
-                    textBox.Text = textBox.Name;
+                    //textBox.Text = textBox.Name;
                 }
             }
 
@@ -87,11 +87,12 @@ namespace DialougeToHtmlTable
                         Grid.SetRow(normaltextBoxList[i], currentRow);
                         Grid.SetColumn(normaltextBoxList[i], currentCol);
 
-                        normaltextBoxList[i].Name = $"TextBoxR{currentRow + 1}C{currentCol + 1}";
+                        //normaltextBoxList[i].Name = $"TextBoxR{currentRow + 1}C{currentCol + 1}";
                         normaltextBoxList[i].Margin = new Thickness(10);
                         normaltextBoxList[i].FontSize = 16;
+                        normaltextBoxList[i].BorderThickness = new Thickness(2);
                         normaltextBoxList[i].TextWrapping = TextWrapping.Wrap;
-                        normaltextBoxList[i].Background = Brushes.LightCyan;
+                        normaltextBoxList[i].Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
 
                         i++;
                     }
@@ -110,22 +111,25 @@ namespace DialougeToHtmlTable
                         Grid.SetRow(normaltextBoxList[i], currentRow);
                         Grid.SetColumn(normaltextBoxList[i], currentCol);
 
-                        normaltextBoxList[i].Name = $"TextBoxR{currentRow + 1}C{currentCol + 1}";
+                        //normaltextBoxList[i].Name = $"TextBoxR{currentRow + 1}C{currentCol + 1}";
                         normaltextBoxList[i].Margin = new Thickness(10, 10, 10, 0);
                         normaltextBoxList[i].FontSize = 16;
+                        normaltextBoxList[i].BorderThickness = new Thickness(1, 1, 1, 0.5);
                         normaltextBoxList[i].TextWrapping = TextWrapping.Wrap;
-                        normaltextBoxList[i].Background = Brushes.LightCyan;
+                        normaltextBoxList[i].BorderBrush = new SolidColorBrush(Color.FromRgb(79, 79, 79));
+                        normaltextBoxList[i].Background = new SolidColorBrush(Color.FromRgb(222, 247, 254));
 
                         romajiTextBoxList.Add(new TextBox());
                         Grid.SetRow(romajiTextBoxList[i], currentRow + 1);
                         Grid.SetColumn(romajiTextBoxList[i], currentCol);
 
-                        romajiTextBoxList[i].Name = $"RomajiBoxR{currentRow + 2}C{currentCol + 1}";
+                        //romajiTextBoxList[i].Name = $"RomajiBoxR{currentRow + 2}C{currentCol + 1}";
                         romajiTextBoxList[i].Margin = new Thickness(10, 0, 10, 10);
                         romajiTextBoxList[i].FontSize = 16;
+                        romajiTextBoxList[i].BorderThickness = new Thickness(1, 0.5, 1, 1);
                         romajiTextBoxList[i].TextWrapping = TextWrapping.Wrap;
-                        romajiTextBoxList[i].Background = Brushes.LightSeaGreen;
-                        romajiTextBoxList[i].Foreground = Brushes.White;
+                        romajiTextBoxList[i].BorderBrush = new SolidColorBrush(Color.FromRgb(79, 79, 79));
+                        romajiTextBoxList[i].Background = new SolidColorBrush(Color.FromRgb(253, 238, 238));
 
                         i++;
                     }
