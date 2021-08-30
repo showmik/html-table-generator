@@ -6,7 +6,7 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
         Title="HTML Table Generator" Height="250" Width="340"
-        ResizeMode="CanMinimize" Background="White" Foreground="#FF353535">
+        ResizeMode="CanMinimize" Background="White" Foreground="#FF353535" Icon="Images/16.png">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />

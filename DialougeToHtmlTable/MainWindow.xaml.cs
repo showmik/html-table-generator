@@ -91,8 +91,11 @@ namespace DialougeToHtmlTable
                         normaltextBoxList[i].Margin = new Thickness(10);
                         normaltextBoxList[i].FontSize = 16;
                         normaltextBoxList[i].BorderThickness = new Thickness(2);
+                        normaltextBoxList[i].BorderBrush = new SolidColorBrush(Color.FromRgb(8, 178, 227));
                         normaltextBoxList[i].TextWrapping = TextWrapping.Wrap;
-                        normaltextBoxList[i].Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+                        normaltextBoxList[i].Background = new SolidColorBrush(Color.FromRgb(222, 247, 254));
+                        normaltextBoxList[i].Foreground = new SolidColorBrush(Color.FromRgb(53, 53, 53));
+                        normaltextBoxList[i].Padding = new Thickness(5, 5, 5, 5);
 
                         i++;
                     }
@@ -114,10 +117,12 @@ namespace DialougeToHtmlTable
                         //normaltextBoxList[i].Name = $"TextBoxR{currentRow + 1}C{currentCol + 1}";
                         normaltextBoxList[i].Margin = new Thickness(10, 10, 10, 0);
                         normaltextBoxList[i].FontSize = 16;
-                        normaltextBoxList[i].BorderThickness = new Thickness(1, 1, 1, 0.5);
+                        normaltextBoxList[i].BorderThickness = new Thickness(2, 2, 2, 0.5);
                         normaltextBoxList[i].TextWrapping = TextWrapping.Wrap;
-                        normaltextBoxList[i].BorderBrush = new SolidColorBrush(Color.FromRgb(79, 79, 79));
+                        normaltextBoxList[i].BorderBrush = new SolidColorBrush(Color.FromRgb(8, 178, 227));
                         normaltextBoxList[i].Background = new SolidColorBrush(Color.FromRgb(222, 247, 254));
+                        normaltextBoxList[i].Foreground = new SolidColorBrush(Color.FromRgb(53, 53, 53));
+                        normaltextBoxList[i].Padding = new Thickness(5, 5, 5, 5);
 
                         romajiTextBoxList.Add(new TextBox());
                         Grid.SetRow(romajiTextBoxList[i], currentRow + 1);
@@ -126,10 +131,12 @@ namespace DialougeToHtmlTable
                         //romajiTextBoxList[i].Name = $"RomajiBoxR{currentRow + 2}C{currentCol + 1}";
                         romajiTextBoxList[i].Margin = new Thickness(10, 0, 10, 10);
                         romajiTextBoxList[i].FontSize = 16;
-                        romajiTextBoxList[i].BorderThickness = new Thickness(1, 0.5, 1, 1);
+                        romajiTextBoxList[i].BorderThickness = new Thickness(2, 0.5, 2, 2);
                         romajiTextBoxList[i].TextWrapping = TextWrapping.Wrap;
-                        romajiTextBoxList[i].BorderBrush = new SolidColorBrush(Color.FromRgb(79, 79, 79));
-                        romajiTextBoxList[i].Background = new SolidColorBrush(Color.FromRgb(253, 238, 238));
+                        romajiTextBoxList[i].BorderBrush = new SolidColorBrush(Color.FromRgb(8, 178, 227));
+                        romajiTextBoxList[i].Background = new SolidColorBrush(Color.FromRgb(155, 231, 251));
+                        romajiTextBoxList[i].Foreground = new SolidColorBrush(Color.FromRgb(53, 53, 53));
+                        romajiTextBoxList[i].Padding = new Thickness(5, 5, 5, 5);
 
                         i++;
                     }
