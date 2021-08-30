@@ -4,12 +4,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="ResultWindow"
+        Title="Result"
         Height="450"
-        Width="800" 
+        Width="800"
         MinWidth="400"
-        MinHeight="300" 
-        Background="#FF353535">
+        MinHeight="300"
+        Background="#FF353535" Icon="Images/16.png">
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
@@ -17,7 +17,7 @@
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
 
-            <Grid Background="#353535">
+            <Grid Background="#08B2E3">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
@@ -31,18 +31,18 @@
                         HorizontalAlignment="Left"
                         Width="60"
                         Margin="0,0,0,0"
-                        Click="ResultCopyButton_Click" 
+                        Click="ResultCopyButton_Click"
                         FontSize="16">
 
                         <Button.Style>
                             <Style TargetType="Button">
                                 <Setter Property="TextElement.FontFamily" Value="/DialougeToHtmlTable;component/Fonts/#Proxima Nova Rg" />
-                                <Setter Property="Background" Value="#06D6A0" />
+                                <Setter Property="Background" Value="#17B890" />
                                 <Setter Property="Foreground" Value="White" />
                                 <Setter Property="Cursor" Value="Hand" />
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#07F9B8" />
+                                        <Setter Property="Background" Value="#1BDAAA" />
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
@@ -58,10 +58,9 @@
                                 </Border>
                             </ControlTemplate>
                         </Button.Template>
-
                     </Button>
 
-                    <Button x:Name="ResultClearButton" 
+                    <Button x:Name="ResultClearButton"
                             Content="Clear"
                             HorizontalAlignment="Left"
                             Width="60"
@@ -72,7 +71,7 @@
                         <Button.Style>
                             <Style TargetType="Button">
                                 <Setter Property="TextElement.FontFamily" Value="/DialougeToHtmlTable;component/Fonts/#Proxima Nova Rg" />
-                                <Setter Property="Background" Value="#EF767A" />
+                                <Setter Property="Background" Value="#ef5d60" />
                                 <Setter Property="Foreground" Value="White" />
                                 <Setter Property="Cursor" Value="Hand" />
                                 <Style.Triggers>
@@ -92,22 +91,19 @@
                                 </Border>
                             </ControlTemplate>
                         </Button.Template>
-
                     </Button>
                 </StackPanel>
             </Grid>
 
-            
-            
-                <ScrollViewer Grid.Row="1">
-                    <RichTextBox
+            <ScrollViewer Grid.Row="1">
+                <RichTextBox
                          x:Name="ResultTextBox"
                          Margin="0,0,0,0"
                            BorderBrush="#FFFFFF"
-                    BorderThickness="2,2,2,2"
+                    BorderThickness="2,0,2,2"
+                    FontSize="14"
                          SelectionBrush="#16C6F7" />
-                </ScrollViewer>
-            
+            </ScrollViewer>
         </Grid>
     </Grid>
 </Window>
