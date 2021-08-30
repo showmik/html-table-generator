@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{67E0D24E-1771-42A7-8EF0-E13E7F989C03}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>DialougeToHtmlTable</RootNamespace>
-    <AssemblyName>DialougeToHtmlTable</AssemblyName>
+    <RootNamespace>HtmlTableGenerator</RootNamespace>
+    <AssemblyName>HtmlTableGenerator</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -25,6 +25,9 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <TargetCulture>en-US</TargetCulture>
+    <ProductName>HTML Table Generator</ProductName>
+    <PublisherName>Darkspactus Soft</PublisherName>
     <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
