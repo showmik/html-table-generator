@@ -31,7 +31,7 @@
                         FontSize="18" Foreground="#FF353535" 
                         HorizontalAlignment="Left" 
                         VerticalAlignment="Center"
-                        FontFamily="./#Proxima Nova Rg" />
+                        FontFamily="/DialougeToHtmlTable;component/Fonts/#Proxima Nova Rg" />
 
             <xctk:IntegerUpDown x:Name="ColumnUpDown"
                                 Height="30"
@@ -42,7 +42,10 @@
                                 Minimum="0"
                                 Background="White"
                                 BorderBrush="#FF08B2E3"
-                                Foreground="#FF353535" BorderThickness="2" />
+                                Foreground="#FF353535" 
+                                BorderThickness="2"
+                                VerticalContentAlignment="Center"
+                                FontFamily="/DialougeToHtmlTable;component/Fonts/#Proxima Nova Rg"/>
         </StackPanel>
 
         <StackPanel Grid.Row="0"
@@ -55,7 +58,7 @@
                         FontSize="18" Foreground="#FF353535" 
                         HorizontalAlignment="Left" 
                         VerticalAlignment="Center"
-                        FontFamily="./#Proxima Nova Rg" />
+                        FontFamily="/DialougeToHtmlTable;component/Fonts/#Proxima Nova Rg" />
 
             <xctk:IntegerUpDown x:Name="RowUpDown"
                                 Height="30"
@@ -67,7 +70,9 @@
                                 Background="White"
                                 BorderBrush="#FF08B2E3" 
                                 Foreground="#FF353535" 
-                                BorderThickness="2" />
+                                BorderThickness="2" 
+                                VerticalContentAlignment="Center" 
+                                FontFamily="/DialougeToHtmlTable;component/Fonts/#Proxima Nova Rg"/>
         </StackPanel>
 
         <StackPanel Grid.Row="0"
@@ -83,7 +88,7 @@
                 VerticalContentAlignment="Center"
                 Foreground="#FF353535"
                       BorderBrush="#FF08B2E3"
-                      Background="White" FontFamily="./#Proxima Nova Rg" BorderThickness="2" RenderTransformOrigin="0.5,0.5" />
+                      Background="White" FontFamily="/DialougeToHtmlTable;component/Fonts/#Proxima Nova Rg" BorderThickness="2" RenderTransformOrigin="0.5,0.5" />
         </StackPanel>
 
         <Button x:Name="DialogueWinGenBtn"
@@ -100,7 +105,7 @@
 
             <Button.Style>
                 <Style TargetType="Button">
-                    <Setter Property="TextElement.FontFamily" Value="Fonts/#ProximaNova" />
+                    <Setter Property="TextElement.FontFamily" Value="/DialougeToHtmlTable;component/Fonts/#Proxima Nova Rg" />
                     <Setter Property="Background" Value="#FF08B2E3" />
                     <Setter Property="Foreground" Value="White" />
                     <Setter Property="Cursor" Value="Hand" />
