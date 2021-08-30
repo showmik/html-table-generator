@@ -16,24 +16,24 @@ Formatting it into an HTML table would do the job and the code (excluding furiga
 ```
 <table>
     <tr>
-        <td>だけし:<br/>Takeshi</td>
-        <td>こんにちは。きむら たけしです。<br/>Konnichiwa. Kimura Takeshi desu.</td>
+       <td>だけし:<br/>Takeshi</td>
+       <td>こんにちは。きむら たけしです。<br/>Konnichiwa. Kimura Takeshi desu.</td>
     </tr>
     <tr>
-        <td>メアリー:<br/>Mearii</td>
-        <td>メアりー・ハートです。あのう、りゅうがくせいですか。<br/>Mearii Haato desu. Anoo, ryuugakusee desu ka.</td>
+       <td>メアリー:<br/>Mearii</td>
+       <td>メアりー・ハートです。あのう、りゅうがくせいですか。<br/>Mearii Haato desu. Anoo, ryuugakusee desu ka.</td>
     </tr>
     <tr>
-        <td>だけし:<br/>Takeshi</td>
-        <td>いいえ、にほんじんです。<br/>iie, nihonjin desu.</td>
+       <td>だけし:<br/>Takeshi</td>
+       <td>いいえ、にほんじんです。<br/>iie, nihonjin desu.</td>
     </tr>
     <tr>
-        <td>メアリー:<br/>Mearii</td>
-        <td>そうですか。なんねんせいですか。<br/>Soo desu ka. Nannensee desu ka.</td>
+       <td>メアリー:<br/>Mearii</td>
+       <td>そうですか。なんねんせいですか。<br/>Soo desu ka. Nannensee desu ka.</td>
     </tr>
     <tr>
-        <td>だけし:<br/>Takeshi</td>
-        <td>よねんせいです。<br/>Yonensee desu.</td>
+       <td>だけし:<br/>Takeshi</td>
+       <td>よねんせいです。<br/>Yonensee desu.</td>
     </tr>
 </table>
 
@@ -52,3 +52,7 @@ To do the same with this tool,
 * It will generate another window with table code. You can copy the whole thing by clicking on Copy.
 
   <img src="DialougeToHtmlTable/Docs/AppInterface03.png" width="550" alt="AppInterface03"/>
+  
+After adding styling, it can look good on kindle.
+
+<img src="DialougeToHtmlTable/Docs/Kindle.jpg" width="550" alt="AppInterface03"/>
