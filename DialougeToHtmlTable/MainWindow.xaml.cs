@@ -127,7 +127,7 @@ namespace DialougeToHtmlTable
                     }
                 }
 
-                //Log(i);
+                Log(i);
             }
         }
 
