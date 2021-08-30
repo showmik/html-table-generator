@@ -168,7 +168,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Setup\" />
+    <Folder Include="Builds\" />
     <Folder Include="Src\" />
   </ItemGroup>
   <ItemGroup>
