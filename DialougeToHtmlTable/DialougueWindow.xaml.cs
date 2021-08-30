@@ -96,6 +96,7 @@ namespace DialougeToHtmlTable
             ResultWindow resultWindow = new ResultWindow();
             resultWindow.ResultTextBox.Document = myFlowDoc;
             resultWindow.Show();
+            //WindowState = WindowState.Minimized;
         }
     }
 }
