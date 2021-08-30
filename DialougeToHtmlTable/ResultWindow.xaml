@@ -6,7 +6,10 @@
         mc:Ignorable="d"
         Title="ResultWindow"
         Height="450"
-        Width="800" MinWidth="400" MinHeight="300">
+        Width="800" 
+        MinWidth="400"
+        MinHeight="300" 
+        Background="#FF353535">
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
@@ -14,7 +17,7 @@
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
 
-            <Grid Background="WhiteSmoke">
+            <Grid Background="#353535">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
@@ -28,27 +31,83 @@
                         HorizontalAlignment="Left"
                         Width="60"
                         Margin="0,0,0,0"
-                        Background="LightYellow"
-                        BorderBrush="Yellow"
-                        Click="ResultCopyButton_Click" />
+                        Click="ResultCopyButton_Click" 
+                        FontSize="16">
 
-                    <Button x:Name="ResultClearButton" Content="Clear"
-                        HorizontalAlignment="Left"
-                        Width="60"
-                        Margin="0,0,0,0"
-                        Background="LightPink"
-                        BorderBrush="Pink"
-                        Click="ResultClearButton_Click" />
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="TextElement.FontFamily" Value="/DialougeToHtmlTable;component/Fonts/#Proxima Nova Rg" />
+                                <Setter Property="Background" Value="#06D6A0" />
+                                <Setter Property="Foreground" Value="White" />
+                                <Setter Property="Cursor" Value="Hand" />
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#07F9B8" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="Auto"
+                                        Height="Auto"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center" />
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
+
+                    <Button x:Name="ResultClearButton" 
+                            Content="Clear"
+                            HorizontalAlignment="Left"
+                            Width="60"
+                            Margin="0,0,0,0"
+                            Click="ResultClearButton_Click"
+                            FontSize="16">
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="TextElement.FontFamily" Value="/DialougeToHtmlTable;component/Fonts/#Proxima Nova Rg" />
+                                <Setter Property="Background" Value="#EF767A" />
+                                <Setter Property="Foreground" Value="White" />
+                                <Setter Property="Cursor" Value="Hand" />
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#ffabae" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="Auto" Height="Auto"
+                            Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                          HorizontalAlignment="Center" />
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
                 </StackPanel>
             </Grid>
 
-            <ScrollViewer Grid.Row="1">
-                <RichTextBox
+            
+            
+                <ScrollViewer Grid.Row="1">
+                    <RichTextBox
                          x:Name="ResultTextBox"
                          Margin="0,0,0,0"
-                    BorderBrush="Lavender"
-                         SelectionBrush="DodgerBlue" />
-            </ScrollViewer>
+                           BorderBrush="#FFFFFF"
+                    BorderThickness="2,2,2,2"
+                         SelectionBrush="#16C6F7" />
+                </ScrollViewer>
+            
         </Grid>
     </Grid>
 </Window>
