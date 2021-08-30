@@ -14,14 +14,22 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
-            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
         </Grid.RowDefinitions>
 
         <ScrollViewer>
             <Grid x:Name="TextInputGrid">
             </Grid>
         </ScrollViewer>
-
-        <Button Grid.Row="1" Width="50" Height="30" Content="Run" Click="Button_Click"></Button>
+        
+        <Grid Grid.Row="1" Background="LightCyan" Margin="0,15,0,0">
+            <Button Grid.Row="1"
+                Width="60"
+                Height="40"
+                Content="Run"
+                    HorizontalAlignment="Right"
+                    Margin="0,0,25,0"
+                Click="Button_Click" FontSize="16"></Button>
+        </Grid>
     </Grid>
 </Window>

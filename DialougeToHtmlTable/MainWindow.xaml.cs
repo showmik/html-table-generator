@@ -67,6 +67,8 @@ namespace DialougeToHtmlTable
         private void PopulateTextBoxLists()
         {
             normaltextBoxList.Clear();
+            romajiTextBoxList.Clear();
+
             numberOfColumns = (int)ColumnUpDown.Value;
             numberOfRows = (int)RowUpDown.Value;
 
@@ -82,7 +84,8 @@ namespace DialougeToHtmlTable
                         Grid.SetColumn(normaltextBoxList[i], currentCol);
 
                         normaltextBoxList[i].Name = $"TextBoxR{currentRow + 1}C{currentCol + 1}";
-                        normaltextBoxList[i].Margin = new Thickness(8);
+                        normaltextBoxList[i].Margin = new Thickness(10);
+                        normaltextBoxList[i].FontSize = 16;
                         normaltextBoxList[i].TextWrapping = TextWrapping.Wrap;
                         normaltextBoxList[i].Background = Brushes.LightCyan;
 
@@ -105,6 +108,7 @@ namespace DialougeToHtmlTable
 
                         normaltextBoxList[i].Name = $"TextBoxR{currentRow + 1}C{currentCol + 1}";
                         normaltextBoxList[i].Margin = new Thickness(10, 10, 10, 0);
+                        normaltextBoxList[i].FontSize = 16;
                         normaltextBoxList[i].TextWrapping = TextWrapping.Wrap;
                         normaltextBoxList[i].Background = Brushes.LightCyan;
 
@@ -114,8 +118,10 @@ namespace DialougeToHtmlTable
 
                         romajiTextBoxList[i].Name = $"RomajiBoxR{currentRow + 2}C{currentCol + 1}";
                         romajiTextBoxList[i].Margin = new Thickness(10, 0, 10, 10);
+                        romajiTextBoxList[i].FontSize = 16;
                         romajiTextBoxList[i].TextWrapping = TextWrapping.Wrap;
-                        romajiTextBoxList[i].Background = Brushes.LightPink;
+                        romajiTextBoxList[i].Background = Brushes.LightSeaGreen;
+                        romajiTextBoxList[i].Foreground = Brushes.White;
 
                         i++;
                     }

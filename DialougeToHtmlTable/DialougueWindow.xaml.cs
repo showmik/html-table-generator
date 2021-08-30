@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace DialougeToHtmlTable
 {
@@ -19,9 +11,11 @@ namespace DialougeToHtmlTable
     /// </summary>
     public partial class DialougueWindow : Window
     {
-        List<TextBox> normaltextBoxList = new List<TextBox>();
-        int totalColumns;
-        int totalRows;
+        private List<TextBox> normaltextBoxList = new List<TextBox>();
+        private int totalColumns;
+        private int totalRows;
+
+        private StringBuilder stringBuilder = new StringBuilder();
 
         public DialougueWindow(int colNumber, int rowNumber, List<TextBox> textBoxList)
         {
@@ -29,12 +23,45 @@ namespace DialougeToHtmlTable
             normaltextBoxList = textBoxList;
             totalColumns = colNumber;
             totalRows = rowNumber;
-            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+            GenerateTableHtmlText();
+            ShowResultWindow();
+        }
+
+        private void GenerateTableHtmlText()
+        {
+            stringBuilder.Clear();
+            stringBuilder.AppendLine("<table>");
+            int i = 0;
+            for (int currentRow = 0; currentRow < totalRows; currentRow++)
+            {
+                stringBuilder.AppendLine("<tr>");
+                for (int currentCol = 0; currentCol < totalColumns; currentCol++)
+                {
+                    stringBuilder.Append("<td>");
+                    stringBuilder.Append(normaltextBoxList[i].Text);
+                    stringBuilder.AppendLine($"</td>");
+                    i++;
+                }
+                stringBuilder.AppendLine($"</tr>");
+                
+            }
+            stringBuilder.AppendLine("</table>");
+        }
+
+        private void ShowResultWindow()
+        {
+            FlowDocument myFlowDoc = new FlowDocument();
+            Paragraph para = new Paragraph();
+            para.Inlines.Add(new Run(stringBuilder.ToString()));
+            myFlowDoc.Blocks.Add(para);
+
+            ResultWindow resultWindow = new ResultWindow();
+            resultWindow.ResultTextBox.Document = myFlowDoc;
+            resultWindow.Show();
         }
     }
 }
