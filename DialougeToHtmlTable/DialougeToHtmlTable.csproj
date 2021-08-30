@@ -15,7 +15,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>D:\Showmik\Desktop\APp\</PublishUrl>
+    <PublishUrl>C:\Users\Showmik\source\repos\DialougeToHtmlTableSolution\DialougeToHtmlTable\Builds\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -28,7 +28,7 @@
     <TargetCulture>en-US</TargetCulture>
     <ProductName>HTML Table Generator</ProductName>
     <PublisherName>Darkspactus Soft</PublisherName>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -168,7 +168,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Builds\" />
+    <Folder Include="Setup\" />
     <Folder Include="Src\" />
   </ItemGroup>
   <ItemGroup>
