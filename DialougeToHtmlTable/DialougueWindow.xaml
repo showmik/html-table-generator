@@ -24,7 +24,7 @@
         </Grid.RowDefinitions>
 
         <ScrollViewer Grid.ColumnSpan="2">
-            <Grid x:Name="TextInputGrid" Margin="10,0,10,10">
+            <Grid x:Name="TextInputGrid" Margin="10,0,10,10" VerticalAlignment="Top">
             </Grid>
         </ScrollViewer>
 
