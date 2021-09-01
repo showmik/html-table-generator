@@ -49,7 +49,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="0"
-                   Grid.Column="2"
+                    Grid.Column="2"
                     VerticalAlignment="Bottom"
                     Margin="10,0,10,5">
 
@@ -76,7 +76,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="0"
-                   Grid.Column="3"
+                    Grid.Column="3"
                     VerticalAlignment="Bottom"
                     Margin="10,0,0,5">
 
@@ -87,8 +87,8 @@
                 FontSize="18"
                 VerticalContentAlignment="Center"
                 Foreground="#FF353535"
-                      BorderBrush="#FF08B2E3"
-                      Background="White" FontFamily="/DialougeToHtmlTable;component/Fonts/#Proxima Nova Rg" BorderThickness="2" RenderTransformOrigin="0.5,0.5" />
+                BorderBrush="#FF08B2E3"
+                Background="White" FontFamily="/DialougeToHtmlTable;component/Fonts/#Proxima Nova Rg" BorderThickness="2" RenderTransformOrigin="0.5,0.5" />
         </StackPanel>
 
         <Button x:Name="DialogueWinGenBtn"
