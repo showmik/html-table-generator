@@ -12,6 +12,58 @@
     MinWidth="400"
     Background="White" Icon="Images/16.png">
 
+    <Window.Resources>
+        <!--#region Text Box Syle -->
+        <Style x:Key="Si" TargetType="{x:Type TextBox}">
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="AllowDrop" Value="true" />
+            <Setter Property="FontFamily" Value="Consolas" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontStyle" Value="Normal" />
+            <Setter Property="VerticalContentAlignment"  Value="Center" />
+            <Setter Property="HorizontalContentAlignment"  Value="Left" />
+            <Setter Property="Foreground"  Value="#0C7FDE" />
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                        <Border Name="Border"
+                                CornerRadius="0"
+                                Padding="5"
+                                Background="#FFFFFF"
+                                BorderBrush="#FF08B2E3"
+                                BorderThickness="2">
+
+                            <ScrollViewer Margin="0" x:Name="PART_ContentHost" />
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="#ffffff" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="#085594" />
+                                <Setter Property="Foreground" Value="#085594" />
+                                <Setter Property="Margin" Value="10" />
+                            </Trigger>
+
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="#42a5f5" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="#085594" />
+                                <Setter Property="Foreground" Value="#FFFFFF" />
+                                <Setter Property="CaretBrush" Value="#FFFFFF" />
+                                <Setter Property="SelectionBrush" Value="#FFFFFF" />
+                                <Setter Property="SelectionOpacity" Value="0.4" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--#endregion-->
+    </Window.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>
@@ -23,7 +75,7 @@
             <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <ScrollViewer Grid.ColumnSpan="2">
+        <ScrollViewer Grid.ColumnSpan="2" VerticalAlignment="Top">
             <Grid x:Name="TextInputGrid"
                   Margin="10,0,10,10">
             </Grid>
