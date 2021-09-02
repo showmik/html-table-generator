@@ -1,12 +1,13 @@
 # HTML Table Generator
 
-**HTML Table Generator** is a WPF application that generates HTML  table code automatically. It takes inputs from the user and generates HTML table code accordingly.
+**HTML Table Generator** is a WPF application that takes inputs from the user and generates HTML table code accordingly making the whole process a lot easier.
+
 
 ## Backstory
 I was working on an ebook file that I intended to read on my kindle. The file had many Japanese dialogues and vocabularies that needed to be formatted into an HTML table so that the kindle can display it nicely.
 I also had to make sure it supports Furigana by using [HTML ruby syntax](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby) tag.
 
-Coding this by hand was very tedious and close to impossible. So, I decided to make a tool that can automate the process. The HTML Table Generator is the result of that, along with another tool, the **Furigana Tool**.
+Coding this by hand was very tedious and close to impossible. So, I decided to make a tool that can automate the process. The HTML Table Generator is the result of that, along with another tool, the **[Furigana Tool](https://github.com/showmik/furigana-tool)**.
 
 ## How to Use
 <img src="DialougeToHtmlTable/Docs/DialogueFromGenki.png" width="550" alt="A dialogue From Genki"/>
