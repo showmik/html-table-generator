@@ -56,6 +56,6 @@ Formatting it into an HTML table would do the job and the code (excluding Furiga
   <img src="DialougeToHtmlTable/Docs/AppInterface03.png" width="550" alt="AppInterface03"/>
 
   
-After adding some style to it it looks something like this:
+After adding some style, it looks something like this:
 
 <img src="DialougeToHtmlTable/Docs/Kindle.jpg" width="500" alt="KindlePreview"/>
