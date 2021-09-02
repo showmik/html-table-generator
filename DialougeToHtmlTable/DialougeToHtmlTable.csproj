@@ -28,7 +28,7 @@
     <TargetCulture>en-US</TargetCulture>
     <ProductName>HTML Table Generator</ProductName>
     <PublisherName>Darkspactus Soft</PublisherName>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
