@@ -31,7 +31,7 @@
                         FontSize="18" Foreground="#FF353535"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
-                        FontFamily="Consolas" />
+                        FontFamily="/HtmlTableGenerator;component/Fonts/#Proxima Nova Rg" />
 
             <xctk:IntegerUpDown x:Name="ColumnUpDown"
                                 Height="30"
@@ -59,7 +59,7 @@
                         FontSize="18" Foreground="#FF353535"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
-                        FontFamily="Consolas" />
+                        FontFamily="/HtmlTableGenerator;component/Fonts/#Proxima Nova Rg" />
 
             <xctk:IntegerUpDown x:Name="RowUpDown"
                                 Height="30"
