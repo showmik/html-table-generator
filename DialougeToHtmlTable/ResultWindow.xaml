@@ -9,7 +9,109 @@
         Width="800"
         MinWidth="400"
         MinHeight="300"
-        Background="#FF353535" Icon="Images/16.png">
+        Background="white" Icon="Images/16.png">
+
+    <Window.Resources>
+        <!--#region Scrool Bar Style -->
+        <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Grid x:Name="Grid">
+                            <Rectangle HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Stretch"
+                                       Width="Auto"
+                                       Height="Auto"
+                                       Fill="Transparent" />
+                            <Border x:Name="Rectangle1"
+                                    CornerRadius="0"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    Width="Auto"
+                                    Height="Auto"
+                                    Background="{TemplateBinding Background}" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Tag" Value="Horizontal">
+                                <Setter TargetName="Rectangle1" Property="Width" Value="Auto" />
+                                <Setter TargetName="Rectangle1" Property="Height" Value="7" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--SCROLLBARS-->
+        <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
+            <Setter Property="Foreground" Value="#7ADEFA" />
+            <Setter Property="Background" Value="#7ADEFA" />
+            <Setter Property="Width" Value="15" />
+            <Setter Property="Margin" Value="0,0,0,0" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ScrollBar}">
+                        <Grid x:Name="GridRoot"
+                              Width="15"
+                              Background="#E7F4FE"
+                              HorizontalAlignment="Right"
+                              Margin="0,0,0,0">
+
+                            <Track x:Name="PART_Track" Grid.Row="0" IsDirectionReversed="true" Focusable="False">
+                                <Track.Thumb>
+                                    <Thumb x:Name="Thumb" Background="{TemplateBinding Foreground}"
+                                           Style="{DynamicResource ScrollThumbs}" />
+                                </Track.Thumb>
+                                <Track.IncreaseRepeatButton>
+                                    <RepeatButton x:Name="PageUp"
+                                                  Command="ScrollBar.PageDownCommand"
+                                                  Opacity="0"
+                                                  Focusable="False" />
+                                </Track.IncreaseRepeatButton>
+                                <Track.DecreaseRepeatButton>
+                                    <RepeatButton x:Name="PageDown"
+                                                  Command="ScrollBar.PageUpCommand"
+                                                  Opacity="0"
+                                                  Focusable="False" />
+                                </Track.DecreaseRepeatButton>
+                            </Track>
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger SourceName="Thumb" Property="IsMouseOver" Value="true">
+                                <Setter TargetName="Thumb" Property="Background" Value="#08B2E3" />
+                            </Trigger>
+
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter TargetName="Thumb" Property="Visibility" Value="Collapsed" />
+                            </Trigger>
+                            <Trigger Property="Orientation" Value="Horizontal">
+                                <Setter TargetName="GridRoot" Property="LayoutTransform">
+                                    <Setter.Value>
+                                        <RotateTransform Angle="-90" />
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="PART_Track" Property="LayoutTransform">
+                                    <Setter.Value>
+                                        <RotateTransform Angle="-90" />
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Width" Value="Auto" />
+                                <Setter Property="Height" Value="12" />
+                                <Setter TargetName="Thumb" Property="Tag" Value="Horizontal" />
+                                <Setter TargetName="PageDown" Property="Command" Value="ScrollBar.PageLeftCommand" />
+                                <Setter TargetName="PageUp" Property="Command" Value="ScrollBar.PageRightCommand" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--#endregion-->
+    </Window.Resources>
+
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
@@ -24,25 +126,24 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
 
-                <StackPanel
-                    Grid.Column="0"
-                    Orientation="Horizontal">
-                    <Button x:Name="ResultCopyButton" Content="Copy"
-                        HorizontalAlignment="Left"
-                        Width="60"
-                        Margin="0,0,0,0"
-                        Click="ResultCopyButton_Click"
-                        FontSize="16">
+                <StackPanel Grid.Column="0" Orientation="Horizontal">
+                    <Button x:Name="ResultCopyButton"
+                            Content="Copy"
+                            FontSize="18"
+                            HorizontalAlignment="Left"
+                            Width="80"
+                            Margin="0,0,0,0"
+                            Click="ResultCopyButton_Click">
 
                         <Button.Style>
                             <Style TargetType="Button">
-                                <Setter Property="TextElement.FontFamily" Value="/DialougeToHtmlTable;component/Fonts/#Proxima Nova Rg" />
-                                <Setter Property="Background" Value="#17B890" />
+                                <Setter Property="TextElement.FontFamily" Value="/HtmlTableGenerator;component/Fonts/#Proxima Nova Rg" />
+                                <Setter Property="Background" Value="#06D6A0" />
                                 <Setter Property="Foreground" Value="White" />
                                 <Setter Property="Cursor" Value="Hand" />
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#1BDAAA" />
+                                        <Setter Property="Background" Value="#4EFACC" />
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
@@ -63,20 +164,20 @@
                     <Button x:Name="ResultClearButton"
                             Content="Clear"
                             HorizontalAlignment="Left"
-                            Width="60"
+                            Width="80"
                             Margin="0,0,0,0"
                             Click="ResultClearButton_Click"
-                            FontSize="16">
+                            FontSize="18">
 
                         <Button.Style>
                             <Style TargetType="Button">
-                                <Setter Property="TextElement.FontFamily" Value="/DialougeToHtmlTable;component/Fonts/#Proxima Nova Rg" />
-                                <Setter Property="Background" Value="#ef5d60" />
+                                <Setter Property="TextElement.FontFamily" Value="/HtmlTableGenerator;component/Fonts/#Proxima Nova Rg" />
+                                <Setter Property="Background" Value="#EF767A" />
                                 <Setter Property="Foreground" Value="White" />
                                 <Setter Property="Cursor" Value="Hand" />
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#ffabae" />
+                                        <Setter Property="Background" Value="#F5A9AC" />
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
@@ -85,9 +186,9 @@
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Border Width="Auto" Height="Auto"
-                            Background="{TemplateBinding Background}">
+                                        Background="{TemplateBinding Background}">
                                     <ContentPresenter VerticalAlignment="Center"
-                                          HorizontalAlignment="Center" />
+                                                      HorizontalAlignment="Center" />
                                 </Border>
                             </ControlTemplate>
                         </Button.Template>
@@ -96,13 +197,15 @@
             </Grid>
 
             <ScrollViewer Grid.Row="1">
-                <RichTextBox
-                         x:Name="ResultTextBox"
-                         Margin="0,0,0,0"
-                           BorderBrush="#FFFFFF"
-                    BorderThickness="2,0,2,2"
-                    FontSize="14"
-                         SelectionBrush="#16C6F7" />
+                <RichTextBox x:Name="ResultTextBox"
+                             Margin="0,0,0,0"
+                             BorderBrush="#FFFFFF"
+                             Foreground="#353535"
+                             BorderThickness="0,0,0,0"
+                             FontSize="16"
+                             FontFamily="Consolas" 
+                             SelectionBrush="#08B2E3"
+                             CaretBrush="#353535"/>
             </ScrollViewer>
         </Grid>
     </Grid>
