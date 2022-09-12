@@ -1,20 +1,22 @@
 # HTML Table Generator
 
-**HTML Table Generator** is a WPF application that takes inputs from the user and generates HTML table code accordingly making the whole process a lot easier.
-
+**HTML Table Generator** is a WPF application that takes user input and generates HTML table code, making the process much easier.
 
 ## Backstory
-I was working on an ebook file that I intended to read on my kindle. The file had many Japanese dialogues and vocabularies that needed to be formatted into an HTML table so that the kindle can display it nicely.
-I also had to make sure it supports Furigana by using HTML [ruby](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby) syntax.
+
+I was working on an ebook file that I planned to read on my Kindle. The file had numerous Japanese dialogues and vocabularies that needed to be turned into an HTML table for the kindle to display properly.
+I also had to use HTML [ruby](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby) syntax to ensure that it supported Furigana.
 
 Coding this by hand was very tedious and close to impossible. So, I decided to make a tool that can automate the process. The HTML Table Generator is the result of that, along with another tool, the **[Furigana Tool](https://github.com/showmik/furigana-tool)**.
 
 ## How to Use
+
 <img src="DialougeToHtmlTable/Docs/DialogueFromGenki.png" width="550" alt="A dialogue From Genki"/>
 
 Suppose the case, this dialogue, which is from the Japanese textbook *[Genki](https://en.wikipedia.org/wiki/Genki:_An_Integrated_Course_in_Elementary_Japanese)*, needed to be incorporated in an ebook file in such a way that the kindle can read it nicely.
 
 Formatting it into an HTML table would do the job and the code (excluding Furigana and styling) would look something like this:
+
 ```
 <table>
     <tr>
@@ -43,6 +45,7 @@ Formatting it into an HTML table would do the job and the code (excluding Furiga
 
 
 ### To do the same with this **HTML Table Generator**:
+
 * First, input how many rows and columns you need. In this case, It is two columns and five rows. Also check on the romaji support check box and then click on **Generate**.
 
   <img src="DialougeToHtmlTable/Docs/AppInterface01.png" width="280" alt="AppInterface01"/>
