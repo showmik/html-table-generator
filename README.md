@@ -1,6 +1,6 @@
 # HTML Table Generator
 
-**HTML Table Generator** is a WPF application that takes user input and generates HTML table code, making the process much easier.
+**HTML Table Generator** is a tool that generates HTML table code from user input or CSV files.
 
 ## Backstory
 
