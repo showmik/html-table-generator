@@ -6,6 +6,7 @@ using HtmlTableGenerator.Services;
 using HtmlTableGenerator.View;
 using Microsoft.Win32;
 using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 
@@ -69,18 +70,27 @@ public partial class MainViewModel : ObservableObject
 
     private void ProcessTableContent()
     {
-        TableInputWindow tableInputWindow = new();
         int row = int.Parse(RowText);
         int column = int.Parse(ColumnText);
-        tableData.Row = row;
-        tableData.Column = column;
-        Grid grid = tableInputWindow.TableGrid;
 
-        GeneratorTools.AdjustGrid(row, column, grid);
-        GeneratorTools.CreateHeaders(grid, row, column);
-        GeneratorTools.CreateTextBoxes(grid, tableData);
-        SendTableData(tableData);
-        tableInputWindow.Show();
+        if (row > 0 && column > 0)
+        {
+            tableData.Row = row;
+            tableData.Column = column;
+
+            TableInputWindow tableInputWindow = new();
+            Grid grid = tableInputWindow.TableGrid;
+
+            GeneratorTools.AdjustGrid(row, column, grid);
+            GeneratorTools.CreateHeaders(grid, row, column);
+            GeneratorTools.CreateTextBoxes(grid, tableData);
+            SendTableData(tableData);
+            tableInputWindow.Show();
+        }
+        else
+        {
+            MessageBox.Show("Row and Column must greater than 0.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
     }
 
     private void SendTableData(TableData tableData) => WeakReferenceMessenger.Default.Send(tableData);
