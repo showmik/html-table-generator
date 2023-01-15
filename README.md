@@ -11,7 +11,7 @@ Coding this by hand was very tedious and close to impossible. So, I decided to m
 
 ## How to Use
 
-<img src="DialougeToHtmlTable/Docs/DialogueFromGenki.png" width="550" alt="A dialogue From Genki"/>
+<img src="Docs/DialogueFromGenki.png" width="550" alt="A dialogue From Genki"/>
 
 Suppose the case, this dialogue, which is from the Japanese textbook *[Genki](https://en.wikipedia.org/wiki/Genki:_An_Integrated_Course_in_Elementary_Japanese)*, needed to be incorporated in an ebook file in such a way that the kindle can read it nicely.
 
@@ -48,17 +48,17 @@ Formatting it into an HTML table would do the job and the code (excluding Furiga
 
 * First, input how many rows and columns you need. In this case, It is two columns and five rows. Also check on the romaji support check box and then click on **Generate**.
 
-  <img src="DialougeToHtmlTable/Docs/AppInterface01.png" width="280" alt="AppInterface01"/>
+  <img src="Docs/AppInterface01.png" width="280" alt="AppInterface01"/>
   
 * It will generate a new window containing input text boxes corresponding to the number of rows and columns you entered. Fill up these boxes with proper input and then click **Run**.
   
-  <img src="DialougeToHtmlTable/Docs/AppInterface02.png" width="550" alt="AppInterface02"/>
+  <img src="Docs/AppInterface02.png" width="550" alt="AppInterface02"/>
   
 * It will generate another window with the final table code. You can copy the whole thing by clicking on **Copy**.
 
-  <img src="DialougeToHtmlTable/Docs/AppInterface03.png" width="550" alt="AppInterface03"/>
+  <img src="Docs/AppInterface03.png" width="550" alt="AppInterface03"/>
 
   
 After adding some style, it looks something like this:
 
-<img src="DialougeToHtmlTable/Docs/Kindle.jpg" width="500" alt="KindlePreview"/>
+<img src="Docs/Kindle.jpg" width="500" alt="KindlePreview"/>
