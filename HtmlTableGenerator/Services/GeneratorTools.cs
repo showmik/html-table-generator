@@ -117,26 +117,31 @@ internal class GeneratorTools
 
     public static async Task<string[]?> ReadCsv(string filePath)
     {
-        string[] strings;
-        try
+        if (!string.IsNullOrEmpty(filePath))
         {
-            strings = await File.ReadAllLinesAsync(filePath);
+            string[] strings;
+            try
+            {
+                strings = await File.ReadAllLinesAsync(filePath);
+            }
+            catch (FileNotFoundException ex)
+            {
+                MessageBox.Show("Error: The file could not be found. " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: An error occurred.\n" + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return null;
+            }
+            return strings;
         }
-        catch (FileNotFoundException ex)
+        else
         {
-            MessageBox.Show("Error: The file could not be found. " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show("Warning: Path must not be empty.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             return null;
         }
-        catch (ArgumentException)
-        {
-            MessageBox.Show("Error: Path cannot be empty. ", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            return null;
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show("Error: An error occurred.\n" + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            return null;
-        }
-        return strings;
+
+        
     }
 }

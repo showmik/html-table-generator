@@ -6,7 +6,6 @@ using HtmlTableGenerator.Services;
 using HtmlTableGenerator.View;
 using Microsoft.Win32;
 using System;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 
@@ -25,8 +24,8 @@ public partial class MainViewModel : ObservableObject
 
     public MainViewModel()
     {
-        rowText = "0";
-        columnText = "0";
+        rowText = "1";
+        columnText = "1";
         filePath = string.Empty;
         tableData = new TableData();
     }
@@ -73,24 +72,17 @@ public partial class MainViewModel : ObservableObject
         int row = int.Parse(RowText);
         int column = int.Parse(ColumnText);
 
-        if (row > 0 && column > 0)
-        {
-            tableData.Row = row;
-            tableData.Column = column;
+        tableData.Row = row;
+        tableData.Column = column;
 
-            TableInputWindow tableInputWindow = new();
-            Grid grid = tableInputWindow.TableGrid;
+        TableInputWindow tableInputWindow = new();
+        Grid grid = tableInputWindow.TableGrid;
 
-            GeneratorTools.AdjustGrid(row, column, grid);
-            GeneratorTools.CreateHeaders(grid, row, column);
-            GeneratorTools.CreateTextBoxes(grid, tableData);
-            SendTableData(tableData);
-            tableInputWindow.Show();
-        }
-        else
-        {
-            MessageBox.Show("Row and Column must greater than 0.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-        }
+        GeneratorTools.AdjustGrid(row, column, grid);
+        GeneratorTools.CreateHeaders(grid, row, column);
+        GeneratorTools.CreateTextBoxes(grid, tableData);
+        SendTableData(tableData);
+        tableInputWindow.Show();
     }
 
     private void SendTableData(TableData tableData) => WeakReferenceMessenger.Default.Send(tableData);
