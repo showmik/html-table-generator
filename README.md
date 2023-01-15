@@ -11,7 +11,7 @@ Coding this by hand was very tedious and close to impossible. So, I decided to m
 
 ## How to Use
 
-<img src="DialougeToHtmlTable/Docs/DialogueFromGenki.png" width="550" alt="A dialogue From Genki"/>
+<img src="Docs/DialogueFromGenki.png" width="550" alt="A dialogue From Genki"/>
 
 Suppose the case, this dialogue, which is from the Japanese textbook *[Genki](https://en.wikipedia.org/wiki/Genki:_An_Integrated_Course_in_Elementary_Japanese)*, needed to be incorporated in an ebook file in such a way that the kindle can read it nicely.
 
