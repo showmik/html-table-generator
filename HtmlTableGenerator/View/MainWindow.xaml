@@ -1,0 +1,122 @@
+﻿<Window x:Class="HtmlTableGenerator.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:services="clr-namespace:HtmlTableGenerator.Services"
+        xmlns:viewmodel="clr-namespace:HtmlTableGenerator.ViewModel"
+        mc:Ignorable="d"
+        Title="HTML Table Generator"
+        Height="250"
+        Width="380">
+
+    <Window.DataContext>
+        <viewmodel:MainViewModel />
+    </Window.DataContext>
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <services:InverseBooleanConverter x:Key="InverseBooleanConverter" />
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".3*" />
+            <RowDefinition Height=".2*" />
+            <RowDefinition Height=".2*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".7*" />
+            <ColumnDefinition Width=".3*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0"
+              IsEnabled="{Binding IsChecked, ElementName=CsvCheckBox, Converter={StaticResource InverseBooleanConverter}}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Row="0"
+                        Grid.Column="0"
+                        Margin="10"
+                        VerticalAlignment="Bottom">
+
+                <TextBlock Text="Row"
+                           Style="{StaticResource MainWindowTextStyle}" />
+
+                <xctk:IntegerUpDown Value="{Binding RowText}"
+                                    Maximum="50"
+                                    Style="{StaticResource IntegerUpDownStyle}" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="10"
+                        VerticalAlignment="Bottom">
+
+                <TextBlock Text="Column"
+                           Style="{StaticResource MainWindowTextStyle}" />
+
+                <xctk:IntegerUpDown Value="{Binding ColumnText}"
+                                    Style="{StaticResource IntegerUpDownStyle}" />
+            </StackPanel>
+        </Grid>
+
+        <StackPanel Grid.Row="0"
+                    Grid.Column="1"
+                    Margin="10"
+                    VerticalAlignment="Bottom">
+
+            <CheckBox x:Name="CsvCheckBox"
+                      Content="CSV"
+                      FontSize="14"
+                      IsChecked="{Binding CsvEnabled}"
+                      Style="{StaticResource MainCheckBoxStyle}" />
+        </StackPanel>
+
+        <Grid  Grid.Row="1"
+               Grid.ColumnSpan="3"
+               VerticalAlignment="Center"
+               IsEnabled="{Binding IsChecked, ElementName=CsvCheckBox}">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBox Grid.Column="0"
+                     Grid.ColumnSpan="2"
+                     FontSize="12"
+                     Height="30"
+                     Margin="10, 10, 0, 10"
+                     VerticalContentAlignment="Center"
+                     Text="{Binding FilePath}"
+                     Style="{StaticResource FilePathTextBoxStyle}" />
+
+            <Button Content="Browse"
+                    Grid.Column="2"
+                    Height="30"
+                    Width="100"
+                    Margin="10"
+                    HorizontalAlignment="Center"
+                    Command="{Binding OpenFileCommand}"
+                    Style="{StaticResource DefaultButtonStyle}" />
+        </Grid>
+
+        <Button Content="Generate"
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Height="30"
+                Width="100"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Margin="10"
+                Command="{Binding GenerateButtonCommand}"
+                Style="{StaticResource DefaultButtonStyle}" />
+    </Grid>
+</Window>

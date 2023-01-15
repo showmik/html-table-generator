@@ -1,0 +1,384 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit">
+
+    <SolidColorBrush x:Key="PrimaryColorExtraDark"
+                     Color="#03045e" />
+    <SolidColorBrush x:Key="PrimaryColorDark"
+                     Color="#0077b6" />
+    <SolidColorBrush x:Key="PrimaryColor"
+                     Color="#00b4d8" />
+    <SolidColorBrush x:Key="PrimaryColorLight"
+                     Color="#90e0ef" />
+    <SolidColorBrush x:Key="PrimaryColorExtraLight"
+                     Color="#caf0f8" />
+
+    <SolidColorBrush x:Key="DisabledColor"
+                     Color="#ddd" />
+
+    <SolidColorBrush x:Key="TableCellColor1"
+                     Color="#EDFAFD" />
+    <SolidColorBrush x:Key="TableCellColor2"
+                     Color="#B6EBF7" />
+    <SolidColorBrush x:Key="TableCellFocusColor"
+                     Color="#FFFDD6" />
+
+    <SolidColorBrush x:Key="CopyButtonColor"
+                     Color="#06D6A0" />
+    <SolidColorBrush x:Key="CopyButtonHighlightColor"
+                     Color="#4EFACC" />
+
+    <SolidColorBrush x:Key="ClearButtonColor"
+                     Color="#EF767A" />
+    <SolidColorBrush x:Key="ClearButtonHighlightColor"
+                     Color="#F5A9AC" />
+
+    <SolidColorBrush x:Key="SaveButtonColor"
+                     Color="#E8CD73" />
+    <SolidColorBrush x:Key="SaveButtonHighlightColor"
+                     Color="#EDD892" />
+
+    <!--#region TextBlock Styles-->
+    <Style TargetType="TextBlock"
+           x:Key="MainWindowTextStyle">
+        <Setter Property="Foreground"
+                Value="{StaticResource PrimaryColorExtraDark}" />
+        <Setter Property="HorizontalAlignment"
+                Value="Left" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="TextElement.FontFamily"
+                Value="/HtmlTableGenerator;component/Fonts/#Inter-Regular" />
+    </Style>
+
+    <Style TargetType="TextBlock"
+           x:Key="TableHeaderStyle">
+        <Setter Property="Foreground"
+                Value="{StaticResource PrimaryColorExtraDark}" />
+        <Setter Property="HorizontalAlignment"
+                Value="Center" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="TextElement.FontFamily"
+                Value="/HtmlTableGenerator;component/Fonts/#Inter-Regular" />
+    </Style>
+    <!--#endregion-->
+
+    <!--#region TextBox Styles-->
+    <Style TargetType="TextBox"
+           x:Key="FilePathTextBoxStyle">
+        <Setter Property="Background"
+                Value="#fff" />
+        <Setter Property="Foreground"
+                Value="{StaticResource PrimaryColorExtraDark}" />
+        <Setter Property="BorderBrush"
+                Value="{StaticResource PrimaryColorDark}" />
+        <Setter Property="BorderThickness"
+                Value="2" />
+        <Setter Property="TextElement.FontFamily"
+                Value="/HtmlTableGenerator;component/Fonts/#Inter-Regular" />
+
+        <Style.Triggers>
+            <Trigger Property="IsEnabled"
+                     Value="False">
+                <Setter Property="BorderBrush"
+                        Value="{StaticResource DisabledColor}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="TableCellStyle1"
+           TargetType="TextBox">
+        <Setter Property="FontFamily"
+                Value="Consolas" />
+        <Setter Property="FontSize"
+                Value="16" />
+        <Setter Property="TextWrapping"
+                Value="Wrap" />
+        <Setter Property="Margin"
+                Value="0" />
+        <Setter Property="Padding"
+                Value="5" />
+        <Setter Property="MinWidth"
+                Value="80" />
+        <Setter Property="MinHeight"
+                Value="40" />
+        <Setter Property="Height"
+                Value="Auto" />
+        <Setter Property="Background"
+                Value="{StaticResource TableCellColor1}" />
+        <Setter Property="Foreground"
+                Value="{StaticResource PrimaryColorExtraDark}" />
+        <Setter Property="BorderBrush"
+                Value="{StaticResource PrimaryColor}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="AcceptsReturn"
+                Value="True" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+
+        <Style.Triggers>
+            <Trigger Property="IsFocused"
+                     Value="True">
+                <Setter Property="Background"
+                        Value="{StaticResource TableCellFocusColor}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="TableCellStyle2"
+           TargetType="TextBox">
+        <Setter Property="FontFamily"
+                Value="Consolas" />
+        <Setter Property="FontSize"
+                Value="16" />
+        <Setter Property="TextWrapping"
+                Value="Wrap" />
+        <Setter Property="Margin"
+                Value="0" />
+        <Setter Property="Padding"
+                Value="5" />
+        <Setter Property="MinWidth"
+                Value="80" />
+        <Setter Property="MinHeight"
+                Value="40" />
+        <Setter Property="Height"
+                Value="Auto" />
+        <Setter Property="Background"
+                Value="{StaticResource TableCellColor2}" />
+        <Setter Property="Foreground"
+                Value="{StaticResource PrimaryColorExtraDark}" />
+        <Setter Property="BorderBrush"
+                Value="{StaticResource PrimaryColor}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="AcceptsReturn"
+                Value="True" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+
+        <Style.Triggers>
+            <Trigger Property="IsFocused"
+                     Value="True">
+                <Setter Property="Background"
+                        Value="{StaticResource TableCellFocusColor}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <!--#endregion-->
+
+    <!--#region Button Styles -->
+    <Style TargetType="Button"
+           x:Key="DefaultButtonStyle">
+        <Setter Property="TextElement.FontFamily"
+                Value="/HtmlTableGenerator;component/Fonts/#Inter-Regular.ttf" />
+        <Setter Property="Background"
+                Value="{StaticResource PrimaryColor}" />
+        <Setter Property="Foreground"
+                Value="White" />
+        <Setter Property="Cursor"
+                Value="Hand" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="Auto"
+                            Height="Auto"
+                            Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                                          HorizontalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver"
+                     Value="True">
+                <Setter Property="Background"
+                        Value="{StaticResource PrimaryColorDark}" />
+            </Trigger>
+
+            <Trigger Property="IsEnabled"
+                     Value="False">
+                <Setter Property="Background"
+                        Value="{StaticResource DisabledColor}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="CopyButtonStyle"
+           TargetType="Button">
+        <Setter Property="TextElement.FontFamily"
+                Value="/HtmlTableGenerator;component/Fonts/#Inter-Regular" />
+        <Setter Property="Background"
+                Value="{StaticResource CopyButtonColor}" />
+        <Setter Property="Foreground"
+                Value="White" />
+        <Setter Property="Cursor"
+                Value="Hand" />
+        <Setter Property="FontSize"
+                Value="18" />
+        <Setter Property="HorizontalAlignment"
+                Value="Left" />
+        <Setter Property="Width"
+                Value="80" />
+        <Setter Property="Margin"
+                Value="0,0,0,0" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver"
+                     Value="True">
+                <Setter Property="Background"
+                        Value="{StaticResource CopyButtonHighlightColor}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="ClearButtonStyle"
+           TargetType="Button">
+        <Setter Property="TextElement.FontFamily"
+                Value="/HtmlTableGenerator;component/Fonts/#Inter-Regular" />
+        <Setter Property="Background"
+                Value="{StaticResource ClearButtonColor}" />
+        <Setter Property="Foreground"
+                Value="White" />
+        <Setter Property="Cursor"
+                Value="Hand" />
+        <Setter Property="FontSize"
+                Value="18" />
+        <Setter Property="HorizontalAlignment"
+                Value="Left" />
+        <Setter Property="Width"
+                Value="80" />
+        <Setter Property="Margin"
+                Value="0,0,0,0" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver"
+                     Value="True">
+                <Setter Property="Background"
+                        Value="{StaticResource ClearButtonHighlightColor}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="SaveButtonStyle"
+           TargetType="Button">
+        <Setter Property="TextElement.FontFamily"
+                Value="/HtmlTableGenerator;component/Fonts/#Inter-Regular" />
+        <Setter Property="Background"
+                Value="{StaticResource SaveButtonColor}" />
+        <Setter Property="Foreground"
+                Value="White" />
+        <Setter Property="Cursor"
+                Value="Hand" />
+        <Setter Property="FontSize"
+                Value="18" />
+        <Setter Property="HorizontalAlignment"
+                Value="Left" />
+        <Setter Property="Width"
+                Value="80" />
+        <Setter Property="Margin"
+                Value="0,0,0,0" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver"
+                     Value="True">
+                <Setter Property="Background"
+                        Value="{StaticResource SaveButtonHighlightColor}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--#endregion-->
+
+    <!--#region CheckBox Style-->
+    <Style TargetType="CheckBox"
+           x:Key="MainCheckBoxStyle">
+        <Setter Property="Height"
+                Value="30" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="Foreground"
+                Value="{StaticResource PrimaryColorExtraDark}" />
+        <Setter Property="Background"
+                Value="White" />
+        <Setter Property="BorderBrush"
+                Value="{StaticResource PrimaryColor}" />
+        <Setter Property="FontFamily"
+                Value="/HtmlTableGenerator;component/Fonts/#Inter-Regular" />
+        <Setter Property="BorderThickness"
+                Value="2" />
+        <Setter Property="RenderTransformOrigin"
+                Value="0.5,0.5" />
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver"
+                     Value="True">
+                <Setter Property="BorderBrush"
+                        Value="{StaticResource PrimaryColorDark}" />
+                <Setter Property="Cursor"
+                        Value="Hand" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <!--#endregion-->
+
+    <!--#region IntegerUpDown Style-->
+    <Style TargetType="xctk:IntegerUpDown"
+           x:Key="IntegerUpDownStyle">
+        <Setter Property="Height"
+                Value="30" />
+        <Setter Property="AllowSpin"
+                Value="True" />
+        <Setter Property="Background"
+                Value="White" />
+        <Setter Property="BorderBrush"
+                Value="{StaticResource PrimaryColor}" />
+        <Setter Property="Foreground"
+                Value="{StaticResource PrimaryColorExtraDark}" />
+        <Setter Property="BorderThickness"
+                Value="2" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="Minimum"
+                Value="1" />
+        <Setter Property="Maximum"
+                Value="26" />
+        <Setter Property="FontFamily"
+                Value="/HtmlTableGenerator;component/Fonts/#Inter-Regular" />
+
+        <Style.Triggers>
+            <Trigger Property="IsEnabled"
+                     Value="False">
+                <Setter Property="BorderBrush"
+                        Value="#ddd" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <!--#endregion-->
+
+    <!--#region RichBox Style-->
+    <Style x:Key="RichTextBoxStyle"
+           TargetType="RichTextBox">
+        <Setter Property="Margin"
+                Value="0" />
+        <Setter Property="BorderBrush"
+                Value="White" />
+        <Setter Property="Foreground"
+                Value="{StaticResource PrimaryColorExtraDark}" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="FontSize"
+                Value="16" />
+        <Setter Property="FontFamily"
+                Value="Consolas" />
+        <Setter Property="SelectionBrush"
+                Value="{StaticResource PrimaryColor}" />
+        <Setter Property="CaretBrush"
+                Value="{StaticResource PrimaryColorExtraDark}" />
+    </Style>
+
+    <!--#endregion-->
+</ResourceDictionary>
