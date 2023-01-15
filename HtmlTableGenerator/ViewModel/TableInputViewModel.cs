@@ -4,8 +4,6 @@ using CommunityToolkit.Mvvm.Messaging;
 using HtmlTableGenerator.Model;
 using HtmlTableGenerator.Services;
 using HtmlTableGenerator.View;
-using System.Collections.Generic;
-using System.Windows.Controls;
 using System.Windows.Documents;
 
 namespace HtmlTableGenerator.ViewModel;
@@ -14,7 +12,6 @@ public partial class TableInputViewModel : ObservableObject
 {
     private TableData _tableData;
     private OutputWindow? outputWindow;
-
 
     public TableInputViewModel()
     {

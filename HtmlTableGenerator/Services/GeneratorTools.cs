@@ -134,7 +134,7 @@ internal class GeneratorTools
         }
         catch (Exception ex)
         {
-            MessageBox.Show("Error: An error occurred. " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show("Error: An error occurred.\n" + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             return null;
         }
         return strings;
